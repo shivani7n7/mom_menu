@@ -11,23 +11,16 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 5,
+      seconds: 10,
       navigateAfterSeconds: new LogIn(),
-      title: new Text(
-        'Welcome In SplashScreen',
-        style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+      image: Image.asset(
+        'images/FullLogo.png',
+        width: 500,
       ),
-      image: new Image.network(
-          'https://flutter.io/images/catalog-widget-placeholder.png'),
-      gradientBackground: new LinearGradient(
-          colors: [Colors.cyan, Colors.blue],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       styleTextUnderTheLoader: new TextStyle(),
       photoSize: 100.0,
-      onClick: () => print("Flutter Egypt"),
-      loaderColor: Colors.red,
+      loaderColor: Color(0xFFE88A60),
     );
   }
 }

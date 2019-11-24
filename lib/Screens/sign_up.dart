@@ -31,11 +31,14 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: 'Name',
+                        labelStyle: TextStyle(
+                          color: Colors.lightBlue,
+                        ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.grey,
@@ -45,11 +48,14 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: 'Email',
+                        labelStyle: TextStyle(
+                          color: Colors.lightBlue,
+                        ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.grey,
@@ -59,10 +65,13 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextField(
                       decoration: InputDecoration(
                         labelText: 'Password',
+                        labelStyle: TextStyle(
+                          color: Colors.lightBlue,
+                        ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.grey,
@@ -90,13 +99,13 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('Already have an account?'),
+                  Text('Already have an account? '),
                   InkWell(
                     onTap: () {
                       Navigator.pop(context);

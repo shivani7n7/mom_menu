@@ -22,20 +22,29 @@ class _LogInState extends State<LogIn> {
                   'LOGIN WITH SOCIAL ACCOUNT',
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    fontSize: 200,
+                    fontSize: 20.0,
                   ),
                 ),
               ),
             ),
             Container(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Image.asset('images/facebook.png'),
-                    Image.asset('images/linkedin.png'),
-                    Image.asset('images/google.png')
+                    Image.asset(
+                      'images/facebook.png',
+                      width: 50,
+                    ),
+                    Image.asset(
+                      'images/linkedin.png',
+                      width: 50,
+                    ),
+                    Image.asset(
+                      'images/google.png',
+                      width: 50,
+                    )
                   ],
                 ),
               ),
@@ -54,11 +63,14 @@ class _LogInState extends State<LogIn> {
               child: Column(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: 'Email',
+                        labelStyle: TextStyle(
+                          color: Colors.lightBlue,
+                        ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.grey,
@@ -68,10 +80,13 @@ class _LogInState extends State<LogIn> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextField(
                       decoration: InputDecoration(
                         labelText: 'Password',
+                        labelStyle: TextStyle(
+                          color: Colors.lightBlue,
+                        ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.grey,
@@ -92,14 +107,16 @@ class _LogInState extends State<LogIn> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: FlatButton(
-                  color: Colors.red,
-                  disabledColor: Colors.lightBlue,
+                  color: Colors.lightBlue,
                   child: Text('Log In'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/mainPage');
+                  },
                 ),
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             Container(
               child: Row(
