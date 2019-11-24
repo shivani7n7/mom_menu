@@ -10,8 +10,8 @@ class MainPage extends StatelessWidget {
           child: DrawerTab(),
         ),
         appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: Text('Hff'),
+          backgroundColor: Colors.black,
+          title: Text('Location..'),
         ),
       ),
     );

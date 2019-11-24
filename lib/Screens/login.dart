@@ -69,7 +69,7 @@ class _LogInState extends State<LogIn> {
                       decoration: InputDecoration(
                         labelText: 'Email',
                         labelStyle: TextStyle(
-                          color: Colors.lightBlue,
+                          color: Color(0xFFE88A60),
                         ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
@@ -85,7 +85,7 @@ class _LogInState extends State<LogIn> {
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: TextStyle(
-                          color: Colors.lightBlue,
+                          color: Color(0xFFE88A60),
                         ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
@@ -107,7 +107,7 @@ class _LogInState extends State<LogIn> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: FlatButton(
-                  color: Colors.lightBlue,
+                  color: Color(0xFFE88A60),
                   child: Text('Log In'),
                   onPressed: () {
                     Navigator.pushNamed(context, '/mainPage');
@@ -130,7 +130,7 @@ class _LogInState extends State<LogIn> {
                     child: Text(
                       'Create One',
                       style: TextStyle(
-                        color: Colors.lightBlue,
+                        color: Color(0xFFE88A60),
                       ),
                     ),
                   )
