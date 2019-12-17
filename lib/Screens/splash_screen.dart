@@ -11,7 +11,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 10,
+      seconds: 2,
       navigateAfterSeconds: new LogIn(),
       image: Image.asset(
         'images/FullLogo.png',

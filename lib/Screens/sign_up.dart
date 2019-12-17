@@ -102,24 +102,16 @@ class _SignUpState extends State<SignUp> {
               height: 10,
             ),
             Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Already have an account? '),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      'Log In',
-                      style: TextStyle(
-                        color: Color(0xFFE88A60),
-                      ),
-                    ),
-                  )
-                ],
+              child: InkWell(
+                child: Text(
+                  'Already have an account ?',
+                  style: TextStyle(fontSize: 16),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
               ),
-            )
+            ),
           ],
         ),
       ),

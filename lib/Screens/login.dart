@@ -119,22 +119,30 @@ class _LogInState extends State<LogIn> {
               height: 10,
             ),
             Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Dont have an account? '),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/signup');
-                    },
-                    child: Text(
-                      'Create One',
-                      style: TextStyle(
-                        color: Color(0xFFE88A60),
-                      ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: InkWell(
+                  child: Text(
+                    'FORGOT PASSWORD',
+                    style: TextStyle(
+                      color: Color(0xFFE88A60),
+                      letterSpacing: 2.0,
+                      fontSize: 16,
                     ),
-                  )
-                ],
+                  ),
+                  onTap: () {},
+                ),
+              ),
+            ),
+            Container(
+              child: InkWell(
+                child: Text(
+                  'Dont have an account ?',
+                  style: TextStyle(fontSize: 16),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, '/signup');
+                },
               ),
             )
           ],
