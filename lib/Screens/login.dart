@@ -6,6 +6,9 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _autovalidate = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -64,7 +67,7 @@ class _LogInState extends State<LogIn> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextField(
+                    child: TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: 'Email',
@@ -77,11 +80,13 @@ class _LogInState extends State<LogIn> {
                           ),
                         ),
                       ),
+                      validator: validateEmail,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextField(
+                    child: TextFormField(
+                      keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: 'Password',
                         labelStyle: TextStyle(
@@ -94,6 +99,7 @@ class _LogInState extends State<LogIn> {
                         ),
                       ),
                       obscureText: true,
+                      validator: validatePassword,
                     ),
                   ),
                 ],
@@ -149,5 +155,37 @@ class _LogInState extends State<LogIn> {
         ),
       ),
     );
+  }
+
+  String validateEmail(String value) {
+    Pattern pattern =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    RegExp regex = new RegExp(pattern);
+    if (!regex.hasMatch(value))
+      return 'Enter Valid Email';
+    else
+      return null;
+  }
+
+  String validatePassword(String value) {
+    String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
+    RegExp regex = new RegExp(pattern);
+    if (!regex.hasMatch(value))
+      return 'Password must contain \n'
+          '1 upperCase \n '
+          '1 lowerCase\n 1 number \n must be more '
+          'than 8 letters';
+    else
+      return null;
+  }
+
+  void _validateInputs() {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+    } else {
+      setState(() {
+        _autovalidate = true;
+      });
+    }
   }
 }

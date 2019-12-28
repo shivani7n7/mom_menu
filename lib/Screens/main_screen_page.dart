@@ -47,15 +47,18 @@ class _MainPageState extends State<MainPage> {
                 'Categories',
               ),
             ),
-            CuisineTypeHorizontalView(),
             Divider(
               color: Colors.grey,
             ),
+            CuisineTypeHorizontalView(),
             Padding(
               padding: const EdgeInsets.all(2),
               child: Text(
-                'Categories',
+                'Options near you',
               ),
+            ),
+            Divider(
+              color: Colors.grey,
             ),
             Container(
               height: 500,

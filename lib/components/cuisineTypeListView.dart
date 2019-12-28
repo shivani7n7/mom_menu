@@ -36,8 +36,7 @@ class CuisineTypeHorizontalView extends StatelessWidget {
             cuisineCaption: 'Paratha',
           ),
           Cuisine(
-            cuisineImage:
-                'images/mainpagefoodimages/cuisinetype/pav bhaji.jpeg',
+            cuisineImage: 'images/mainpagefoodimages/cuisinetype/idli.jpg',
             cuisineCaption: 'Snacks',
           ),
           Cuisine(

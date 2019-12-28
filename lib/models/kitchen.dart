@@ -75,6 +75,8 @@ class _KitchenState extends State<Kitchen> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         itemCount: menuList.length,
         itemBuilder: (BuildContext context, int index) {
           return SingleMenu(
@@ -114,7 +116,7 @@ class SingleMenu extends StatelessWidget {
           GridTile(
             child: ListTile(
               onTap: () {
-                print('hsj');
+                Navigator.pushNamed(context, '/menuPage');
               },
               leading: Image.asset(
                 tiffinPic,
@@ -133,7 +135,7 @@ class SingleMenu extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text('\$$price'),
+                      Text('₹ $price'),
                       Text(vegNonVeg),
                     ],
                   ),

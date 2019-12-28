@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mom_menu/Screens/login.dart';
+import 'package:mom_menu/Screens/menu_page.dart';
 import 'package:mom_menu/Screens/sign_up.dart';
 import 'package:mom_menu/Screens/splash_screen.dart';
 import 'package:mom_menu/Screens/main_screen_page.dart';
@@ -14,6 +15,7 @@ void main() {
         '/login': (context) => LogIn(),
         '/signup': (context) => SignUp(),
         '/mainPage': (context) => MainPage(),
+        '/menuPage': (context) => MenuPage(),
       },
       theme: ThemeData.dark(),
     ),
