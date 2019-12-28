@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 class LogIn extends StatefulWidget {
   @override
@@ -6,6 +9,29 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  TextEditingController user = new TextEditingController();
+  TextEditingController password = new TextEditingController();
+
+  String message = '';
+
+  Future<List> _login() async {
+    final response =
+        await http.post("https://mommyfood.000webhostapp.com/get.php", body: {
+      "user": user.text,
+      "password": password.text,
+    });
+    print(response.body);
+    var data = json.decode(response.body);
+    if (data['count'] == 0) {
+      setState(() {
+//        message = "Login Failed";
+        Navigator.pushReplacementNamed(context, '/mainPage');
+      });
+    } else {
+      Navigator.pushReplacementNamed(context, '/mainPage');
+    }
+  }
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool _autovalidate = false;
 
@@ -68,6 +94,7 @@ class _LogInState extends State<LogIn> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
+                      controller: user,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: 'Email',
@@ -86,6 +113,7 @@ class _LogInState extends State<LogIn> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
+                      controller: password,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -116,13 +144,17 @@ class _LogInState extends State<LogIn> {
                   color: Color(0xFFE88A60),
                   child: Text('Log In'),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/mainPage');
+                    _login();
                   },
                 ),
               ),
             ),
             SizedBox(
               height: 10,
+            ),
+            Text(
+              message,
+              style: TextStyle(fontSize: 20.0, color: Colors.red),
             ),
             Container(
               child: Padding(
